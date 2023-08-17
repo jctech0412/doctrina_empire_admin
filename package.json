@@ -1,0 +1,17 @@
+{
+  "name": "doctrinapanel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "admin": "npm start --prefix admin",
+    "server": "npm start --prefix server",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"npm run admin\" \"npm run server\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^8.2.0"
+  }
+}

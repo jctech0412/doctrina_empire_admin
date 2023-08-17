@@ -1,0 +1,18 @@
+export const GET_ERRORS = "GET_ERRORS";
+export const USER_LOADING = "USER_LOADING";
+export const SET_CURRENT_USER = "SET_CURRENT_USER";
+
+export const USER_ADD = "USER_ADD";
+export const USER_UPDATE = "USER_UPDATE";
+
+
+export const ADD_STUDENT = "ADD_STUDENT"
+export const GET_STUDENTS = "GET_STUDENTS"
+export const GET_STUDENT = "GET_STUDENT"
+export const DELETE_STUDENT = "DELETE_STUDENT"
+export const STUDENT_LOADING = "STUDENT_LOADING"
+export const STUDENT_UPDATE = "STUDENT_UPDATE"
+
+export const SUBJECT_ADD = "SUBJECT_ADD";
+export const SUBJECT_UPDATE = "SUBJECT_UPDATE";
+export const SUBJECT_LOADING = "SUBJECT_LOADING"
