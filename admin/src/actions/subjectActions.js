@@ -8,9 +8,10 @@ import {
 
 // Get current profile
 
+const url = process.env.REACT_APP_BACKEND_URL;
 export const addSubject = (subjectData, history) => dispatch => {
     axios
-        .post("/api/subjects/add", subjectData)
+        .post(`${process.env.REACT_APP_BACKEND_URL}/api/subjects/add`, subjectData)
         .then(res => dispatch({
             type: SUBJECT_ADD,
             payload: res,
@@ -26,7 +27,7 @@ export const addSubject = (subjectData, history) => dispatch => {
 export const updateSubject = (subjectData) => dispatch => {
     console.log(subjectData)
     axios
-        .post("/api/subjects/update", subjectData)
+        .post(`${process.env.REACT_APP_BACKEND_URL}/api/subjects/update`, subjectData)
         .then(res =>
             dispatch({
                 type: SUBJECT_UPDATE,

@@ -124,7 +124,7 @@ class Users extends Component {
 
     getData() {
         axios
-            .post("/api/user-data")
+            .post(`${process.env.REACT_APP_BACKEND_URL}/api/user-data`)
             .then(res => {
                 this.setState({ records: res.data})
             })
@@ -137,7 +137,7 @@ class Users extends Component {
 
     deleteRecord(record) {
         axios
-            .post("/api/user-delete", {_id: record._id})
+            .post(`${process.env.REACT_APP_BACKEND_URL}/api/user-delete`, {_id: record._id})
             .then(res => {
                 if (res.status === 200) {
                    toast(res.data.message, {

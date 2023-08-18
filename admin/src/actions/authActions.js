@@ -7,9 +7,10 @@ import {
     USER_LOADING
 } from "./types";
 
+// const url = process.env.REACT_APP_BACKEND_URL;
 export const registerUser = (userData, history) => dispatch => {
     axios
-        .post("/api/register", userData)
+        .post(`${process.env.REACT_APP_BACKEND_URL}/api/register`, userData)
         .then(res => history.push("/login"))
         .catch(err =>
             dispatch({

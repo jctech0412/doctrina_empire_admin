@@ -136,7 +136,7 @@ class Students extends Component {
 
     getData() {
         axios
-            .post("/api/students/get")
+            .post(`${process.env.REACT_APP_BACKEND_URL}/api/students/get`)
             .then(res => {
                 this.setState({ records: res.data})
             })
@@ -149,7 +149,7 @@ class Students extends Component {
 
     deleteRecord(record) {
         axios
-            .post("/api/students/delete", {_id: record._id})
+            .post( `${process.env.REACT_APP_BACKEND_URL}/api/students/delete`, {_id: record._id})
             .then(res => {
                 if (res.status === 200) {
                    toast(res.data.message, {

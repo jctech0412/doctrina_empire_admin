@@ -121,7 +121,7 @@ class Subjects extends Component {
 
     getData() {
         axios
-            .post("/api/subjects/get")
+            .post(`${process.env.REACT_APP_BACKEND_URL}/api/subjects/get`)
             .then(res => {
                 this.setState({ records: res.data})
             })
@@ -134,7 +134,7 @@ class Subjects extends Component {
 
     deleteRecord(record) {
         axios
-            .post("/api/subjects/delete", {_id: record._id})
+            .post(`${process.env.REACT_APP_BACKEND_URL}/api/subjects/delete`, {_id: record._id})
             .then(res => {
                 if (res.status === 200) {
                    toast(res.data.message, {

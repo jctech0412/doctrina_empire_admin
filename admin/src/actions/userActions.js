@@ -7,7 +7,7 @@ import {
 
 export const addUser = (userData, history) => dispatch => {
     axios
-        .post("/api/user-add", userData)
+        .post(`${process.env.REACT_APP_BACKEND_URL}/api/user-add`, userData)
         .then(res =>
             dispatch({
                 type: USER_ADD,
@@ -23,7 +23,7 @@ export const addUser = (userData, history) => dispatch => {
 
 export const updateUser = (userData) => dispatch => {
     axios
-        .post("/api/user-update", userData)
+        .post(`${process.env.REACT_APP_BACKEND_URL}/api/user-update`, userData)
         .then(res =>
             dispatch({
                 type: USER_UPDATE,

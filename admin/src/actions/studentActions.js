@@ -11,7 +11,7 @@ import {
 
 export const addStudent = (studentData, history) => dispatch => {
     axios
-        .post("/api/students/add", studentData)
+        .post(`${process.env.REACT_APP_BACKEND_URL}/api/students/add`, studentData)
         .then(res => dispatch({
             type: ADD_STUDENT,
             payload: res,
@@ -20,7 +20,7 @@ export const addStudent = (studentData, history) => dispatch => {
             console.log(err)
             dispatch({
                 type: GET_ERRORS,
-                payload: err.response.data
+                payload: err.response.data  
             })
         }}
             
@@ -29,7 +29,7 @@ export const addStudent = (studentData, history) => dispatch => {
 
 export const updateStudent = (studentData) => dispatch => {
     axios
-        .post("/api/students/update", studentData)
+        .post(`${process.env.REACT_APP_BACKEND_URL}/api/students/update`, studentData)
         .then(res =>
             dispatch({
                 type: STUDENT_UPDATE,

@@ -3,7 +3,6 @@ import {
     SUBJECT_LOADING,
     SUBJECT_UPDATE
 } from "../actions/types";
-const isEmpty = require("is-empty");
 const initialState = {
     subject: {},
     loading: false,
