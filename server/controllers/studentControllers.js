@@ -83,7 +83,8 @@ const login = (req,res) => {
                 return res.status(200).json(
                     {
                         success: 1,
-                        msg: 'Login successfully'
+                        msg: 'Login successfully',
+                        student
                     })
             } else {
                 return res.status(404).json(

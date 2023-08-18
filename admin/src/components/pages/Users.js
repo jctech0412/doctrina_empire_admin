@@ -77,8 +77,7 @@ class Users extends Component {
             no_data_text: 'No user found!',
             button: {
                 excel: true,
-                print: true,
-                csv: true
+                print: true
             },
             language: {
                 length_menu: "Show _MENU_ result per page",

@@ -87,8 +87,10 @@ const login = (req, res) =>{
         return res.status(400).json(errors);
     }
     const email = req.body.email;
+    console.log(email)
     const password = req.body.password;
-    User.findOne({ email }).then(user => {
+    User.findOne({ email: email }).then(user => {
+        console.log(user)
         if (!user) {
             return res.status(404).json({ email: 'Email not found' });
         }
