@@ -55,7 +55,7 @@ class Login extends Component {
                         <div className="col-md-4 mx-auto my-center mt-5 card shadow-lg">
                             <div className="card-body p-1">
                                 <h2 className="text-center text-primary mt-3">Login</h2>
-                                <form noValidate onSubmit={this.onSubmit} className="white mr-5 ml-5">
+                                <form noValidate onSubmit={this.onSubmit} className="white mr-4 ml-4">
                                     <label htmlFor="email">Email</label>
                                     <input
                                         onChange={this.onChange}
