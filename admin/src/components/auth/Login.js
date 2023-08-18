@@ -55,7 +55,7 @@ class Login extends Component {
                         <div className="col-md-4 mx-auto my-center mt-5 card shadow-lg">
                             <div className="card-body p-1">
                                 <h2 className="text-center text-primary mt-3">Login</h2>
-                                <form noValidate onSubmit={this.onSubmit} className="white">
+                                <form noValidate onSubmit={this.onSubmit} className="white mr-5 ml-5">
                                     <label htmlFor="email">Email</label>
                                     <input
                                         onChange={this.onChange}
@@ -81,7 +81,7 @@ class Login extends Component {
                                         })}
                                     />
                                     <span className="text-danger">{errors.password}</span>
-                                    <p className="text-center pb-0 mt-4">
+                                    <p className="text-center pb-0 mt-4 mb-4">
                                         <button
                                             type="submit"
                                             className="btn btn-large btn-primary mt-2 px-5">
