@@ -68,8 +68,9 @@ const deleteStudent = (req, res) => {
 }
 
 const login = (req,res) => {
-    const email = req.body.email;
-    const password = req.body.password;
+
+    const email = req.headers['email'];
+    const password = req.headers['password'];
     Student.findOne({ email }).then(student => {
         if (!student) {
             return res.status(404).json(
@@ -98,7 +99,7 @@ const login = (req,res) => {
 }
 
 const register = (req, res) => {
-    Student.findOne({ email: req.body.email }).then(student => {
+    Student.findOne({ email: req.headers['email'] }).then(student => {
         if (student) {
             return res.status(404).json(
                 {
@@ -107,11 +108,11 @@ const register = (req, res) => {
                 })
         } else {
             const newStudent = new Student({
-                firstname: req.body.firstname,
-                lastname: req.body.lastname,
-                gender: req.body.gender,
-                email: req.body.email,
-                password: req.body.password
+                firstname: req.headers['firstname'],
+                lastname: req.headers['lastname'],
+                gender: req.headers['gender'],
+                email: req.headers['email'],
+                password: req.headers['password']
             });
             bcrypt.genSalt(10, (err, salt) => {
                 bcrypt.hash(newStudent.password, salt, (err, hash) => {
