@@ -1,6 +1,6 @@
 const validateStudents = require('./../validation/students');
 const Student = require('./../models/Student');
-
+const bcrypt = require('bcryptjs')
 const addStudent = (req, res) =>{
     const { errors, isValid } = validateStudents(req.body);
     if (!isValid) {
@@ -67,9 +67,74 @@ const deleteStudent = (req, res) => {
     });
 }
 
+const login = (req,res) => {
+    const email = req.body.email;
+    const password = req.body.password;
+    Student.findOne({ email }).then(student => {
+        if (!student) {
+            return res.status(404).json(
+                {
+                    success: 0,
+                    msg: 'Email not found'
+                })
+        }
+        bcrypt.compare(password, student.password).then(isMatch => {
+            if (isMatch) {
+                return res.status(200).json(
+                    {
+                        success: 1,
+                        msg: 'Login successfully'
+                    })
+            } else {
+                return res.status(404).json(
+                        {
+                            success: 0,
+                            msg: 'Password incorrect'
+                        })
+            }
+        });
+    });    
+}
+
+const register = (req, res) => {
+    Student.findOne({ email: req.body.email }).then(student => {
+        if (student) {
+            return res.status(404).json(
+                {
+                    success: 0,
+                    msg: 'Email already exist'
+                })
+        } else {
+            const newStudent = new Student({
+                firstname: req.body.firstname,
+                lastname: req.body.lastname,
+                gender: req.body.gender,
+                email: req.body.email,
+                password: req.body.password
+            });
+            bcrypt.genSalt(10, (err, salt) => {
+                bcrypt.hash(newStudent.password, salt, (err, hash) => {
+                    if (err) throw err;
+                    newStudent.password = hash;
+                    newStudent
+                        .save()
+                        .then(student => {
+                            return res.status(200).json(
+                                {
+                                    success: 1,
+                                    msg: 'success'
+                                })
+                        }).catch(err => console.log(err));
+                });
+            });
+        }
+    });
+}
 module.exports = {
     addStudent,
     getStudent,
     updateStudent,
-    deleteStudent
+    deleteStudent,
+    login,
+    register
 };

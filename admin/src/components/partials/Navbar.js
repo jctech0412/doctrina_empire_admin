@@ -18,7 +18,7 @@ class Navbar extends Component {
         return (
             <div className="container-fluid p-0">
                 <div className="height-fix">
-                    <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+                    <nav className="navbar navbar-expand-lg navbar-dark bg-specific">
                         <a className="navbar-brand" href="/">Doctrina Empire</a>
                         <button 
                             className="navbar-toggler" 

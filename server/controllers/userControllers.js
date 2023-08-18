@@ -35,7 +35,6 @@ const addUser = (req, res) => {
         }
     });
 }
-
 const getUser = (req, res) => {
     User.find({}).select(['-password']).then(user => {
         if (user) {
