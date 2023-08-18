@@ -107,7 +107,6 @@ class Students extends Component {
                 }
             }
         ];
-
         this.config = {
             page_size: 10,
             length_menu: [ 10, 20, 50 ],
@@ -204,6 +203,8 @@ class Students extends Component {
     }
 
     render() {
+        
+        const responsive = true
         return (
             <div>
                 <Navbar/>
@@ -217,16 +218,17 @@ class Students extends Component {
                                 <button className="btn btn-link mt-3" id="menu-toggle">
                                     <FontAwesomeIcon icon={faList}/>
                                 </button>
-                                <button 
+                                {/* <button 
                                     className="btn btn-outline-primary float-right mt-3 mr-2" 
                                     data-toggle="modal" 
                                     data-target="#add-student-modal"
                                 >
                                     <FontAwesomeIcon icon={faPlus}/> Add Student
-                                </button>
+                                </button> */}
                             </div>
                             <h1 className="mt-2 text-primary">Students List</h1>
                             <ReactDatatable
+                                responsive={responsive}
                                 config={this.config}
                                 records={this.state.records}
                                 columns={this.columns}
