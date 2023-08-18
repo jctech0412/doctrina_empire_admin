@@ -6,6 +6,7 @@ const passport = require('passport');
 const users = require('./routes/api/users');
 const students = require('./routes/api/students');
 const subjects = require('./routes/api/subjects');
+const test = require('./routes/test')
 
 require('./config/passport')(passport);
 
@@ -35,6 +36,7 @@ app.use(passport.initialize());
 app.use('/api', users);
 app.use('/api/students', students)
 app.use('/api/subjects', subjects)
+app.use('/test', test);
 
 app.use(express.static(path.join(__dirname, 'client/build')));
 
