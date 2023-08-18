@@ -16,26 +16,18 @@ class Students extends Component {
 
     constructor(props) {
         super(props);
-
         this.columns = [
             {
-                key: "firstname",
+                key: "first_name",
                 text: "Firstname",
-                className: "firstname",
+                className: "first_name",
                 align: "left",
                 sortable: true,
             },
             {
-                key: "lastname",
+                key: "last_name",
                 text: "Lastname",
-                className: "lastname",
-                align: "left",
-                sortable: true,
-            },
-            {
-                key: "gender",
-                text: "Gender",
-                className: "gender",
+                className: "last_name",
                 align: "left",
                 sortable: true,
             },
@@ -52,6 +44,40 @@ class Students extends Component {
                 className: "date",
                 align: "left",
                 sortable: true
+            },
+            {
+                key: "active",
+                text: "status",
+                className: "action",
+                width: 90,
+                align: "left",
+                sortable: false,
+                cell: record => {
+                    
+                    if(record.active)
+                        return(
+                            <Fragment>
+                                <button 
+                                    className="btn btn-primary "
+                                    onClick={() => this.activeUpdate(record)}
+                                    style={{width: 90}}
+                                >
+                                    Enable
+                                </button>
+                            </Fragment>
+                        )
+                    else return(
+                        <Fragment>
+                            <button 
+                                className="btn btn-disable "
+                                style={{width: 90}}
+                                onClick={() => this.activeUpdate(record)}
+                            >
+                                Disable
+                            </button>
+                        </Fragment>
+                    )
+                }
             },
             {
                 key: "action",
@@ -116,16 +142,30 @@ class Students extends Component {
         this.state = {
             currentRecord: {
                 id: '',
-                firstname: '',
+                first_name: '',
                 email: '',
-                lastname: '',
-                gender: '',
+                last_name: '',
+                active: ''
             }
         };
 
         this.getData = this.getData.bind(this);
     }
+    
+    activeUpdate = (record) => {
+        axios
+            .post( `${process.env.REACT_APP_BACKEND_URL}/api/students/updateStatus`, {_id: record._id})
+            .then(res => {
+                if (res.status === 200) {
+                   toast(res.data.message, {
+                       position: toast.POSITION.TOP_CENTER,
+                   })           
+                this.getData();
+                }
+            })
+            .catch();
 
+    }
     componentDidMount() {
         this.getData()
     };

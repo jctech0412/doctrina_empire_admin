@@ -14,9 +14,8 @@ class StudentAddModal extends React.Component {
     constructor() {
         super();
         this.state = {
-            firstname: "",
-            lastname: "",
-            gender: "",
+            first_name: "",
+            last_name: "",
             email: "",
             errors: {},
         };
@@ -46,10 +45,9 @@ class StudentAddModal extends React.Component {
     onStudentAdd = e => {
         e.preventDefault();
         const newStudent = {
-            firstname: this.state.firstname,
+            first_name: this.state.first_name,
             email: this.state.email,
-            lastname: this.state.lastname,
-            gender: this.state.gender
+            last_name: this.state.last_name,
         };
         this.props.addStudent(newStudent, this.props.history);
     };
@@ -69,19 +67,19 @@ class StudentAddModal extends React.Component {
                                 <form noValidate onSubmit={this.onStudentAdd} id="add-student">
                                     <div className="row mt-2">
                                         <div className="col-md-3">
-                                            <label htmlFor="name">FirstName</label>
+                                            <label htmlFor="name">Firstname</label>
                                         </div>
                                         <div className="col-md-9">
                                             <input
                                                 onChange={this.onChange}
-                                                value={this.state.firstname}
-                                                id="firstname"
+                                                value={this.state.first_name}
+                                                id="first_name"
                                                 type="text"
-                                                error={errors.firstname}
+                                                error={errors.first_name}
                                                 className={classnames("form-control", {
-                                                    invalid: errors.firstname
+                                                    invalid: errors.first_name
                                                 })}/>
-                                            <span className="text-danger">{errors.firstname}</span>
+                                            <span className="text-danger">{errors.first_name}</span>
                                         </div>
                                     </div>
                                     <div className="row mt-2">
@@ -91,14 +89,14 @@ class StudentAddModal extends React.Component {
                                         <div className="col-md-9">
                                             <input
                                                 onChange={this.onChange}
-                                                value={this.state.lastname}
-                                                id="lastname"
+                                                value={this.state.last_name}
+                                                id="last_name"
                                                 type="text"
-                                                error={errors.lastname}
+                                                error={errors.last_name}
                                                 className={classnames("form-control", {
-                                                    invalid: errors.lastname
+                                                    invalid: errors.last_name
                                                 })}/>
-                                            <span className="text-danger">{errors.lastname}</span>
+                                            <span className="text-danger">{errors.last_name}</span>
                                         </div>
                                     </div>
                                     <div className="row mt-2">
@@ -117,27 +115,6 @@ class StudentAddModal extends React.Component {
                                                 })}
                                             />
                                             <span className="text-danger">{errors.email}</span>
-                                        </div>
-                                    </div>
-                                    <div className="row mt-2">
-                                        <div className="col-md-3">
-                                            <label htmlFor="name">Gender</label>
-                                        </div>
-                                        <div className="col-md-9">
-                                                <select
-                                                    onChange={this.onChange}
-                                                    value={this.state.gender}
-                                                    id='gender'
-                                                    error={errors.gender}
-                                                    className={classnames('form-control', {
-                                                        invalid: errors.gender
-                                                    })}
-                                                >
-                                                    <option value="">Select Gender</option>
-                                                    <option value="male">Male</option>
-                                                    <option value="female">Female</option>
-                                                </select>
-                                            <span className="text-danger">{errors.gender}</span>
                                         </div>
                                     </div>
                                 </form>

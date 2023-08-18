@@ -4,7 +4,8 @@ import {
     ADD_STUDENT,
     STUDENT_UPDATE,
     STUDENT_LOADING,
-    GET_ERRORS
+    GET_ERRORS,
+    UPDATE_STATUS
 } from './types';
 
 // Get current profile
@@ -26,7 +27,6 @@ export const addStudent = (studentData, history) => dispatch => {
             
         );
 }
-
 export const updateStudent = (studentData) => dispatch => {
     axios
         .post(`${process.env.REACT_APP_BACKEND_URL}/api/students/update`, studentData)

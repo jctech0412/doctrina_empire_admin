@@ -3,7 +3,8 @@ import {
     GET_STUDENTS,
     STUDENT_UPDATE,
     DELETE_STUDENT,
-    STUDENT_LOADING
+    STUDENT_LOADING,
+    UPDATE_STATUS
   } from '../actions/types';
   
   const initialState = {
@@ -39,6 +40,11 @@ import {
           ...state,
           students: state.students.filter(student => student._id !== action.payload)
         };
+      case UPDATE_STATUS:
+        return{
+          ...state,
+          students: action.payload
+        }
       default:
         return state;
     }

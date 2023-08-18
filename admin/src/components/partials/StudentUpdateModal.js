@@ -15,9 +15,8 @@ class StudentUpdateModal extends React.Component {
         super(props);
         this.state = {
             id: this.props.record.id,
-            firstname: this.props.record.firstname,
-            lastname: this.props.record.lastname,
-            gender: this.props.record.gender,
+            first_name: this.props.record.first_name,
+            last_name: this.props.record.last_name,
             email: this.props.record.email,
             errors: {},
         };
@@ -27,9 +26,8 @@ class StudentUpdateModal extends React.Component {
         if (nextProps.record) {
             this.setState({
                 id: nextProps.record.id,
-                firstname: nextProps.record.firstname,
-                lastname: nextProps.record.lastname,
-                gender: nextProps.record.gender,
+                first_name: nextProps.record.first_name,
+                last_name: nextProps.record.last_name,
                 email: nextProps.record.email,
             })
         }
@@ -51,17 +49,14 @@ class StudentUpdateModal extends React.Component {
     }
 
     onChange = e => {
-        if (e.target.id === 'student-update-firstname') {
-            this.setState({ firstname: e.target.value });
+        if (e.target.id === 'student-update-first_name') {
+            this.setState({ first_name: e.target.value });
         }
-        if (e.target.id === 'student-update-lastname') {
-            this.setState({ lastname: e.target.value });
+        if (e.target.id === 'student-update-last_name') {
+            this.setState({ last_name: e.target.value });
         }
         if (e.target.id === 'student-update-email') {
             this.setState({ email: e.target.value });
-        }
-        if (e.target.id === 'student-update-gender') {
-            this.setState({ gender: e.target.value });
         }
     };
 
@@ -69,10 +64,9 @@ class StudentUpdateModal extends React.Component {
         e.preventDefault();
         const newStudent = {
             _id: this.state.id,
-            firstname: this.state.firstname,
-            lastname: this.state.lastname,
-            email: this.state.email,
-            gender: this.state.gender
+            first_name: this.state.first_name,
+            last_name: this.state.last_name,
+            email: this.state.email
         };
         this.props.updateStudent(newStudent);
     };
@@ -98,36 +92,36 @@ class StudentUpdateModal extends React.Component {
                                         className="d-none"/>
                                     <div className="row mt-2">
                                         <div className="col-md-3">
-                                            <label htmlFor="name">FirstName</label>
+                                            <label htmlFor="name">First_name</label>
                                         </div>
                                         <div className="col-md-9">
                                             <input
                                                 onChange={this.onChange}
-                                                value={this.state.firstname}
-                                                id="student-update-firstname"
+                                                value={this.state.first_name}
+                                                id="student-update-first_name"
                                                 type="text"
                                                 error={errors.name}
                                                 className={classnames("form-control", {
-                                                    invalid: errors.firstname
+                                                    invalid: errors.first_name
                                                 })}/>
-                                            <span className="text-danger">{errors.firstname}</span>
+                                            <span className="text-danger">{errors.first_name}</span>
                                         </div>
                                     </div>
                                     <div className="row mt-2">
                                         <div className="col-md-3">
-                                            <label htmlFor="name">LastName</label>
+                                            <label htmlFor="name">Last_name</label>
                                         </div>
                                         <div className="col-md-9">
                                             <input
                                                 onChange={this.onChange}
-                                                value={this.state.lastname}
-                                                id="student-update-lastname"
+                                                value={this.state.last_name}
+                                                id="student-update-last_name"
                                                 type="text"
-                                                error={errors.lastname}
+                                                error={errors.last_name}
                                                 className={classnames("form-control", {
-                                                    invalid: errors.lastname
+                                                    invalid: errors.last_name
                                                 })}/>
-                                            <span className="text-danger">{errors.lastname}</span>
+                                            <span className="text-danger">{errors.last_name}</span>
                                         </div>
                                     </div>
                                     <div className="row mt-2">
@@ -146,27 +140,6 @@ class StudentUpdateModal extends React.Component {
                                                 })}
                                             />
                                             <span className="text-danger">{errors.email}</span>
-                                        </div>
-                                    </div>
-                                    <div className="row mt-2">
-                                        <div className="col-md-3">
-                                            <label htmlFor="name">Gender</label>
-                                        </div>
-                                        <div className="col-md-9">
-                                                <select
-                                                    onChange={this.onChange}
-                                                    value={this.state.gender}
-                                                    id='student-update-gender'
-                                                    error={errors.gender}
-                                                    className={classnames('form-control', {
-                                                        invalid: errors.gender
-                                                    })}
-                                                >
-                                                    <option value="">Select Gender</option>
-                                                    <option value="male">Male</option>
-                                                    <option value="female">Female</option>
-                                                </select>
-                                            <span className="text-danger">{errors.gender}</span>
                                         </div>
                                     </div>
                                 </form>

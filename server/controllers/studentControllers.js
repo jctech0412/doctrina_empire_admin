@@ -11,10 +11,9 @@ const addStudent = (req, res) =>{
             return res.status(400).json({ email: 'Email already exists' });
         } else {
             const newStudent = new Student({
-                firstname: req.body.firstname,
-                lastname: req.body.lastname,
-                email: req.body.email,
-                gender: req.body.gender
+                first_name: req.body.first_name,
+                last_name: req.body.last_name,
+                email: req.body.email
             });
             newStudent
                 .save()
@@ -39,7 +38,6 @@ const getStudent = (req, res) => {
 }
 
 const updateStudent = (req, res) => {
-    console.log(req.body)
     const { errors, isValid } = validateStudents(req.body);
     if (!isValid) {
         return res.status(400).json(errors);
@@ -57,6 +55,19 @@ const updateStudent = (req, res) => {
             return res.status(400).json({ message: 'Now Student found to update.' });
         }
     });
+}
+
+const updateStatus = (req, res)=> {
+    console.log(req.body)
+    Student.findOne({_id: req.body._id})
+        .then(student => {
+            student.active = !student.active
+            student
+                .save()
+                .then(update => { res.status(200).json({ message: "Status changed"})})
+                .catch(err => console.log(err))
+        })
+        .catch(err => console.log(err))
 }
 
 const deleteStudent = (req, res) => {
@@ -78,6 +89,12 @@ const login = (req,res) => {
                     success: 0,
                     msg: 'Email not found'
                 })
+        }
+        if(!student.active){
+            return res.status(404).json({
+                success: 0,
+                msg: 'Your account is not active'
+            })
         }
         bcrypt.compare(password, student.password).then(isMatch => {
             if (isMatch) {
@@ -108,9 +125,8 @@ const register = (req, res) => {
                 })
         } else {
             const newStudent = new Student({
-                firstname: req.headers['firstname'],
-                lastname: req.headers['lastname'],
-                gender: req.headers['gender'],
+                first_name: req.headers['first_name'],
+                last_name: req.headers['last_name'],
                 email: req.headers['email'],
                 password: req.headers['password']
             });
@@ -138,5 +154,6 @@ module.exports = {
     updateStudent,
     deleteStudent,
     login,
-    register
+    register,
+    updateStatus
 };
