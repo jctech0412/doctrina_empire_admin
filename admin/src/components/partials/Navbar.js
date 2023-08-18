@@ -30,7 +30,7 @@ class Navbar extends Component {
                         >
                             <span className="navbar-toggler-icon"></span>
                         </button>
-                        <div className="collapse navbar-collapse" id="navbarNavDropdown">
+                        <div className="collapse navbar-collapse dropdown-menu-pr" id="navbarNavDropdown">
                             <ul className="navbar-nav ml-auto">
                                 <li className="nav-item dropdown">
                                     <a 
