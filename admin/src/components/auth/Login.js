@@ -81,7 +81,7 @@ class Login extends Component {
                                         })}
                                     />
                                     <span className="text-danger">{errors.password}</span>
-                                    <p className="text-center pb-0 mt-2">
+                                    <p className="text-center pb-0 mt-4">
                                         <button
                                             type="submit"
                                             className="btn btn-large btn-primary mt-2 px-5">
