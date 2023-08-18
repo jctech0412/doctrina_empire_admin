@@ -52,6 +52,11 @@ class UserAddModal extends React.Component {
             password2: this.state.password2
         };
         this.props.addUser(newUser, this.props.history);
+        this.setState({
+            title: "",
+            content: "",
+            errors: {},
+        })
     };
 
     render() {

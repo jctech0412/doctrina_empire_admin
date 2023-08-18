@@ -49,6 +49,11 @@ class SubjectAddModal extends React.Component {
             content: this.state.content
         };
         this.props.addSubject(newSubject, this.props.history);
+        this.setState({
+            title: "",
+            content: "",
+            errors: {},
+        })
     };
 
     render() {

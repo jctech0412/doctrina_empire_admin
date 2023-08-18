@@ -50,6 +50,11 @@ class StudentAddModal extends React.Component {
             last_name: this.state.last_name,
         };
         this.props.addStudent(newStudent, this.props.history);
+        this.setState({
+            title: "",
+            content: "",
+            errors: {},
+        })
     };
 
     render() {

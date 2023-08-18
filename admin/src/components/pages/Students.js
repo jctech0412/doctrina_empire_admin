@@ -51,7 +51,7 @@ class Students extends Component {
                 className: "action",
                 width: 90,
                 align: "left",
-                sortable: false,
+                sortable: true,
                 cell: record => {
                     
                     if(record.active)
