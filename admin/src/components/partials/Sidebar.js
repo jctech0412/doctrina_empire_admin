@@ -17,7 +17,7 @@ class Sidebar extends Component {
         //const { user } = this.props.auth;
         return (
             <div className="border-right h-100" id="sidebar-wrapper">
-                <div className="list-group list-group-flush">
+                <div className="list-group list-group-flush pr-5 ">
                     <Link to="/users" className="list-group-item list-group-item-action">Users</Link>
                     <Link to="/students" className="list-group-item list-group-item-action">Students</Link>
                     <Link to="/subjects" className="list-group-item list-group-item-action">Subjects</Link>

@@ -4,6 +4,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import { faSignOutAlt, faAddressBook } from "@fortawesome/free-solid-svg-icons";
 import {connect} from "react-redux";
 import {logoutUser} from "../../actions/authActions";
+import './partials.css'
 
 class Navbar extends Component {
 
@@ -40,11 +41,11 @@ class Navbar extends Component {
                                         aria-expanded="false">
                                         {user.name}
                                     </a>
-                                    <div className="dropdown-menu" aria-labelledby="settings">
-                                        <a className="dropdown-item" >
+                                    <div className="dropdown-menu dropdown-menu-pr" aria-labelledby="settings">
+                                        <a className="dropdown-item dropdown-menu-pr" >
                                             <FontAwesomeIcon icon={faAddressBook} /> Profile 
                                         </a>
-                                        <a className="dropdown-item" onClick={this.onLogoutClick}> 
+                                        <a className="dropdown-item dropdown-menu-pr" onClick={this.onLogoutClick}> 
                                             <FontAwesomeIcon icon={faSignOutAlt}/> Logout  
                                         </a>
                                     </div>
