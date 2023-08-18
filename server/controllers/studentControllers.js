@@ -18,7 +18,6 @@ const addStudent = (req, res) =>{
             newStudent
                 .save()
                 .then(student => {
-                    console.log(student);
                     return res.status(200).json({message: 'Student added successfully. Refreshing data...'})
                 })
                 .catch(err => err.status(400).json(err));      
@@ -45,7 +44,6 @@ const updateStudent = (req, res) => {
     const _id = req.body._id;
     Student.findOne({ _id }).then(student => {
         if (student) {
-            console.log(student)
             Student.findOneAndUpdate(
                 { _id: _id},
                 { $set: req.body },
@@ -58,7 +56,6 @@ const updateStudent = (req, res) => {
 }
 
 const updateStatus = (req, res)=> {
-    console.log(req.body)
     Student.findOne({_id: req.body._id})
         .then(student => {
             student.active = !student.active

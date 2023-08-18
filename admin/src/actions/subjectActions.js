@@ -25,7 +25,6 @@ export const addSubject = (subjectData, history) => dispatch => {
 }
 
 export const updateSubject = (subjectData) => dispatch => {
-    console.log(subjectData)
     axios
         .post(`${process.env.REACT_APP_BACKEND_URL}/api/subjects/update`, subjectData)
         .then(res =>

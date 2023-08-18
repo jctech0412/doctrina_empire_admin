@@ -147,7 +147,6 @@ class Subjects extends Component {
     }
 
     pageChange(pageData) {
-        console.log("OnPageChange", pageData);
     }
 
     render() {

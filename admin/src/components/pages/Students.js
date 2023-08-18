@@ -58,7 +58,7 @@ class Students extends Component {
                         return(
                             <Fragment>
                                 <button 
-                                    className="btn btn-primary "
+                                    className="btn btn-primary btn-sm"
                                     onClick={() => this.activeUpdate(record)}
                                     style={{width: 90}}
                                 >
@@ -69,7 +69,7 @@ class Students extends Component {
                     else return(
                         <Fragment>
                             <button 
-                                className="btn btn-disable "
+                                className="btn btn-disable btn-sm"
                                 style={{width: 90}}
                                 onClick={() => this.activeUpdate(record)}
                             >
@@ -115,8 +115,7 @@ class Students extends Component {
             no_data_text: 'No student found!',
             button: {
                 excel: true,
-                print: true,
-                csv: true
+                print: true
             },
             language: {
                 length_menu: "Show _MENU_ result per page",
@@ -202,7 +201,6 @@ class Students extends Component {
     }
 
     pageChange(pageData) {
-        console.log("OnPageChange", pageData);
     }
 
     render() {
