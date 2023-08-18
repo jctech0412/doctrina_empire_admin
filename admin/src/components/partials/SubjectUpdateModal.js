@@ -106,7 +106,7 @@ class SubjectUpdateModal extends React.Component {
                                             <label htmlFor="content">content</label>
                                         </div>
                                         <div className="col-md-9">
-                                            <input
+                                            <textarea
                                                 onChange={this.onChange}
                                                 value={this.state.content}
                                                 error={errors.content}

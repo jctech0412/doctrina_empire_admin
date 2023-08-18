@@ -87,7 +87,7 @@ class SubjectAddModal extends React.Component {
                                             <label htmlFor="name">content</label>
                                         </div>
                                         <div className="col-md-9">
-                                            <input
+                                            <textarea
                                                 onChange={this.onChange}
                                                 value={this.state.content}
                                                 id="content"
