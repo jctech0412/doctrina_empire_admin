@@ -9,10 +9,18 @@ const SubjectSchema = new Schema({
         type: String,
         required: true
     },
-    // creator:{
-    //     type: Schema.Types.ObjectId,
-    //     ref: users
-    // },
+    varient: [
+        {
+            candidate: {
+                type: String,
+                required: true
+            },
+            truth: {
+                type: Boolean,
+                required: true
+            }
+        }
+    ],
     date: {
         type: Date,
         default: Date.now

@@ -10,6 +10,7 @@ import axios from "axios";
 import {faPlus} from "@fortawesome/free-solid-svg-icons";
 import SubjectAddModal from "../partials/SubjectAddModal";
 import SubjectUpdateModal from "../partials/SubjectUpdateModal";
+import SubjectVarientAddModal from "../partials/SubjectVarientAddModal";
 import { toast, ToastContainer} from "react-toastify";
 
 class Subjects extends Component {
@@ -44,7 +45,7 @@ class Subjects extends Component {
                 key: "action",
                 text: "Action",
                 className: "action",
-                width: 100,
+                width: 128,
                 align: "left",
                 sortable: false,
                 cell: record => {
@@ -60,8 +61,16 @@ class Subjects extends Component {
                             </button>
                             <button
                                 className="btn btn-danger btn-sm"
-                                onClick={() => this.deleteRecord(record)}>
+                                onClick={() => this.deleteRecord(record)}
+                                style={{marginRight: '5px'}}>
                                 <i className="fa fa-trash"></i>
+                            </button>
+                            <button
+                                data-toggle="modal"
+                                data-target="#add-varient-modal"
+                                className="btn btn-primary btn-sm"
+                                onClick={() => this.editRecord(record)}>
+                                <i className="fa fa-list"></i>
                             </button>
                         </Fragment>
                     );
@@ -105,6 +114,7 @@ class Subjects extends Component {
                 id: '',
                 title: '',
                 content: '',
+                varient: ''
             }
         };
 
@@ -157,6 +167,7 @@ class Subjects extends Component {
                     <Sidebar/>
                     <SubjectAddModal/>
                     <SubjectUpdateModal record={this.state.currentRecord}/>
+                    <SubjectVarientAddModal record={this.state.currentRecord}/>
                     <div id="page-content-wrapper">
                         <div className="container-fluid">
                             <div className="button-bottom">

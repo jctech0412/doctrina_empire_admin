@@ -67,6 +67,23 @@ const deleteSubject = (req, res) => {
     });
 }
 
+const input_varient = (req, res) => {
+    const varient = req.body.varient;
+    let count = 0;
+    for( var i = 0 ; i < varient.length; i++){
+        if(varient[i].truth == true){
+            count++;
+            if(count > 1) return res.status(400).json({ message: 'Count of true varient can be only one.' });
+        }
+    }
+    Subject.findOne(req.body._id)
+        .then(item => {
+            item.varient = varient;
+            item.save
+                .then(res => {return res.status(200).json({message: "Varients are saved successfully"})})
+                .catch(err => console.log(err));
+        })
+}
 module.exports = {
     addSubject,
     getSubject,

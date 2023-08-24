@@ -8,6 +8,7 @@ router.post('/get', (req, res) => {subjectControllers.getSubject(req, res)})
 router.post('/update', (req, res) => {subjectControllers.updateSubject(req, res)})
 
 router.post('/delete', (req, res) => {subjectControllers.deleteSubject(req, res)});
+router.post('/input_varient', (req, res) => {subjectControllers.input_varient(req, res)});
 
 router.get('/get', (req, res) => {subjectControllers.getSubject(req, res)});
 
