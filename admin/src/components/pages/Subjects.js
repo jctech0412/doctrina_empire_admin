@@ -60,17 +60,17 @@ class Subjects extends Component {
                                 <i className="fa fa-edit"></i>
                             </button>
                             <button
-                                className="btn btn-danger btn-sm"
-                                onClick={() => this.deleteRecord(record)}
-                                style={{marginRight: '5px'}}>
-                                <i className="fa fa-trash"></i>
-                            </button>
-                            <button
                                 data-toggle="modal"
                                 data-target="#add-varient-modal"
                                 className="btn btn-primary btn-sm"
-                                onClick={() => this.editRecord(record)}>
+                                onClick={() => this.editRecord(record)}
+                                style={{marginRight: '5px'}}>
                                 <i className="fa fa-list"></i>
+                            </button>
+                            <button
+                                className="btn btn-danger btn-sm"
+                                onClick={() => this.deleteRecord(record)}>
+                                <i className="fa fa-trash"></i>
                             </button>
                         </Fragment>
                     );
