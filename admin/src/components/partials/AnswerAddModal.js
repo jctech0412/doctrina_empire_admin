@@ -8,8 +8,7 @@ import { toast } from 'react-toastify';
 import axios from "axios";
 import $ from 'jquery';
 import ReactDataTable from '@ashvin27/react-datatable';
-import { SettingOutlined } from '@ant-design/icons';
-import { Cascader, Input, Select, Space, Button, Checkbox } from 'antd';
+import { Input, Select, Button, Checkbox } from 'antd';
 const { Option } = Select;
 
 class AnswerAddModal extends React.Component {
