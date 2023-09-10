@@ -112,9 +112,7 @@ const login = (req, res) =>{
                     }
                 );
             } else {
-                return res
-                    .status(400)
-                    .json({ password: 'Password incorrect' });
+                return res.status(400).json({ password: 'Password incorrect' });
             }
         });
     });

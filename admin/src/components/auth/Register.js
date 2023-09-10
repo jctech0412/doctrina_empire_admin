@@ -23,7 +23,6 @@ class Register extends Component {
             this.props.history.push("/dashboard");
         }
     }
-
     componentWillReceiveProps(nextProps) {
         if (nextProps.errors) {
             this.setState({

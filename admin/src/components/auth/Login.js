@@ -6,6 +6,7 @@ import classnames from "classnames";
 import './auth.css'
 
 class Login extends Component {
+    
     constructor() {
         super();
         this.state = {
@@ -25,7 +26,6 @@ class Login extends Component {
         if (nextProps.auth.isAuthenticated) {
             this.props.history.push("/users");
         }
-
         if (nextProps.errors) {
             this.setState({
                 errors: nextProps.errors
@@ -103,10 +103,12 @@ Login.propTypes = {
     auth: PropTypes.object.isRequired,
     errors: PropTypes.object.isRequired
 };
+
 const mapStateToProps = state => ({
     auth: state.auth,
     errors: state.errors
 });
+
 export default connect(
     mapStateToProps,
     { loginUser }
