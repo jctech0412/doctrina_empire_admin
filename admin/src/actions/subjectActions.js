@@ -3,6 +3,7 @@ import axios from 'axios';
 import {
     SUBJECT_ADD,
     SUBJECT_UPDATE,
+    ANSWER_ADD,
     GET_ERRORS
 } from './types';
 
@@ -14,6 +15,21 @@ export const addSubject = (subjectData, history) => dispatch => {
         .post(`${process.env.REACT_APP_BACKEND_URL}/api/subjects/add`, subjectData)
         .then(res => dispatch({
             type: SUBJECT_ADD,
+            payload: res,
+        }))
+        .catch(err => 
+            dispatch({
+                type: GET_ERRORS,
+                payload: err.response.data
+            })    
+        );
+}
+
+export const addAnswer = (subjectData, history) => dispatch => {
+    axios
+        .post(`${process.env.REACT_APP_BACKEND_URL}/api/subjects/answer/add`, subjectData)
+        .then(res => dispatch({
+            type: ANSWER_ADD,
             payload: res,
         }))
         .catch(err => 

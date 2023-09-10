@@ -9,6 +9,7 @@ export const SET_CURRENT_USER = "SET_CURRENT_USER";
 export const USER_ADD = "USER_ADD";
 export const USER_UPDATE = "USER_UPDATE";
 
+export const ANSWER_ADD = "ANSWER_ADD"
 
 export const ADD_STUDENT = "ADD_STUDENT"
 export const GET_STUDENTS = "GET_STUDENTS"

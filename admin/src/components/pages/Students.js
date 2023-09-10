@@ -218,13 +218,13 @@ class Students extends Component {
                                 <button className="btn btn-link mt-3" id="menu-toggle">
                                     <FontAwesomeIcon icon={faList}/>
                                 </button>
-                                {/* <button 
+                                <button 
                                     className="btn btn-outline-primary float-right mt-3 mr-2" 
                                     data-toggle="modal" 
                                     data-target="#add-student-modal"
                                 >
                                     <FontAwesomeIcon icon={faPlus}/> Add Student
-                                </button> */}
+                                </button>
                             </div>
                             <h1 className="mt-2 text-primary">Students List</h1>
                             <ReactDatatable
