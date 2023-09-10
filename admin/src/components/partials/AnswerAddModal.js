@@ -12,7 +12,7 @@ import { SettingOutlined } from '@ant-design/icons';
 import { Cascader, Input, Select, Space, Button, Checkbox } from 'antd';
 const { Option } = Select;
 
-class SubjectVarientAddModal extends React.Component {
+class AnswerAddModal extends React.Component {
 
     constructor() {
         super();
@@ -245,7 +245,7 @@ class SubjectVarientAddModal extends React.Component {
     }
 }
 
-SubjectVarientAddModal.propTypes = {
+AnswerAddModal.propTypes = {
     addAnswer: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
     errors: PropTypes.object.isRequired
@@ -260,4 +260,4 @@ const mapStateToProps = state => ({
 export default connect(
     mapStateToProps,
     { addAnswer }
-)(withRouter(SubjectVarientAddModal));
+)(withRouter(AnswerAddModal));

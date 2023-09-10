@@ -21,12 +21,24 @@ const addAnswer = (req, res) =>{
         })
         .catch(err => console.log(err));    
 
-
 }
 
 const getAnswer = (req, res) => {
     Answer
         .find({ subject_id: req.body.id })
+        .then(subject => {
+            return res.json(subject);
+        })
+        .catch(err => {
+            console.log(err)
+        })
+}
+
+const getApi = (req, res) => {
+    const id = req.headers['id'];
+    console.log(id);
+    Answer
+        .find({ subject_id: id })
         .then(subject => {
             return res.json(subject);
         })
@@ -69,5 +81,6 @@ module.exports = {
     addAnswer,
     getAnswer,
     deleteAnswer,
-    updateAnswer
+    updateAnswer,
+    getApi
 };

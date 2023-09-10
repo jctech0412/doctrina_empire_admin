@@ -10,7 +10,7 @@ import axios from "axios";
 import {faPlus} from "@fortawesome/free-solid-svg-icons";
 import SubjectAddModal from "../partials/SubjectAddModal";
 import SubjectUpdateModal from "../partials/SubjectUpdateModal";
-import SubjectVarientAddModal from "../partials/SubjectVarientAddModal";
+import AnswerAddModal from "../partials/AnswerAddModal";
 import { toast, ToastContainer} from "react-toastify";
 
 class Subjects extends Component {
@@ -167,7 +167,7 @@ class Subjects extends Component {
                     <Sidebar/>
                     <SubjectAddModal/>
                     <SubjectUpdateModal record={this.state.currentRecord}/>
-                    <SubjectVarientAddModal record={this.state.currentRecord}/>
+                    <AnswerAddModal record={this.state.currentRecord}/>
                     <div id="page-content-wrapper">
                         <div className="container-fluid">
                             <div className="button-bottom">
