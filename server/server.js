@@ -6,6 +6,7 @@ const passport = require('passport');
 const userRoute = require('./routes/api/users');
 const studentRoute = require('./routes/api/students');
 const subjectRoute = require('./routes/api/subjects');
+const answerRoute = require('./routes/api/answers');
 const testRoute = require('./routes/test')
 const cors = require("cors");
 
@@ -42,6 +43,7 @@ app.use('/api', userRoute);
 app.use('/api/students', studentRoute)
 app.use('/api/subjects', subjectRoute)
 app.use('/test', testRoute);
+app.use('/api/answers', answerRoute);
 
 app.use(express.static(path.join(__dirname, 'client/build')));
 

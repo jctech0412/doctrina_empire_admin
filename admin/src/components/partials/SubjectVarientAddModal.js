@@ -50,7 +50,7 @@ class SubjectVarientAddModal extends React.Component {
 
     getAnswer(id) {
         axios
-            .post(`${process.env.REACT_APP_BACKEND_URL}/api/subjects/answer/get`, id)
+            .post(`${process.env.REACT_APP_BACKEND_URL}/api/answers/get`, id)
             .then(res => {
                 this.setState({ records: res.data});
                 this.tempAnswer = res.data;
@@ -150,7 +150,7 @@ class SubjectVarientAddModal extends React.Component {
             this.getAnswer({id: this.state.id});
         }else{
             axios
-                .post(`${process.env.REACT_APP_BACKEND_URL}/api/subjects/answer/update`, [this.record._id ,{answer: this.state.answer, valid: this.state.isvalid}])
+                .post(`${process.env.REACT_APP_BACKEND_URL}/api/answers/update`, [this.record._id ,{answer: this.state.answer, valid: this.state.isvalid}])
                 .then(res => {
                     if (res.status === 200) {
                         this.getAnswer({id: this.state.id});
@@ -166,7 +166,7 @@ class SubjectVarientAddModal extends React.Component {
 
     deleteAnswer(record) {
         axios
-            .post(`${process.env.REACT_APP_BACKEND_URL}/api/subjects/answer/delete`, {_id: record._id})
+            .post(`${process.env.REACT_APP_BACKEND_URL}/api/answers/delete`, {_id: record._id})
             .then(res => {
                 if (res.status === 200) {
                     this.getAnswer({id: this.state.id});

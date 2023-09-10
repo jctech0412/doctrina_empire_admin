@@ -27,7 +27,7 @@ export const addSubject = (subjectData, history) => dispatch => {
 
 export const addAnswer = (subjectData, history) => dispatch => {
     axios
-        .post(`${process.env.REACT_APP_BACKEND_URL}/api/subjects/answer/add`, subjectData)
+        .post(`${process.env.REACT_APP_BACKEND_URL}/api/answers/add`, subjectData)
         .then(res => dispatch({
             type: ANSWER_ADD,
             payload: res,
